@@ -20,13 +20,15 @@ def login(request):
         
         if login_form.is_valid():
             user = auth.authenticate(username=request.POST["username"], password=request.POST["password"])
-            messages.success(request, "You have successfully logged in.")
+            
             
             if user:
                 auth.login(user=user, request=request)
+                messages.success(request, "You have successfully logged in.")
                 return redirect(reverse("index"))
             else:
-                login_form.add_error(None, "Invalid username or password")
+                # login_form.add_error(None, "Invalid username or password")
+                messages.error(request, "Invalid username or password")
                 return render(request, "accounts/login.template.html", {
             "form":login_form
         })
@@ -50,15 +52,14 @@ def register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
-            # do processing
-            # after finished processing
+            
             form.save()
             
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password1'])
             
             if user:
-                #if user has been created successfully, attempt to login
+                
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered")
             else:

@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model
 
+
 from .models import MyUser
 
 class UserLoginForm(forms.Form):
@@ -13,9 +14,10 @@ class UserLoginForm(forms.Form):
 class UserRegistrationForm(UserCreationForm):
     """Form used to register a new user"""
 
-    password1 = forms.CharField(widget=forms.PasswordInput)
+    email = forms.EmailField(label="Email Address", widget=forms.EmailInput)
+    password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
     password2 = forms.CharField(
-        label="Password Confirmation",
+        label="Confirm Password",
         widget=forms.PasswordInput)
     
     

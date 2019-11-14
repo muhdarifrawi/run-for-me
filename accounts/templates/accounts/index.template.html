@@ -13,6 +13,7 @@
   <body>
     
     {% extends 'base.template.html' %}
+    
 
     {% block page_title %}Home Page{% endblock %}
     
@@ -22,12 +23,7 @@
     Logged in as: {{request.user.username}}
     {% endif %}
     
-    <hr>
-    {% if messages %}
-    <div>
-      {% for m in messages %} {{m}} {% endfor %}
-    </div>
-    {% endif %}
+    
 
 
     <!-- Optional JavaScript -->
