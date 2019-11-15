@@ -2,5 +2,9 @@ from django.shortcuts import render, HttpResponse
 
 # Create your views here.
 
-def show_main(request):
-    return render(request, "index.template.html")
+def request_run(request):
+    return HttpResponse("Request Page")
+    
+
+def relief_run(request):
+    return HttpResponse("Relief Page")
