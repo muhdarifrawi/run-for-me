@@ -3,24 +3,29 @@
 
 {% block content%}
 <h1>Relief a Run!</h1>
-
+{% for order in all_orders %}
 <div class="card text-center">
   <div class="card-header">
     <nav>
       <div class="nav nav-tabs card-header-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home{{order.sku}}" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile{{order.sku}}" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact{{order.sku}}" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
       </div>
     </nav>
   </div>
   <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active m-2" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-      <p>Madam Lim</p>
-      <p>Total items: 5</p>
-      <p>Run priority: Urgent and Immeadiate</p>
+    <div class="tab-pane fade show active m-2" id="nav-home{{order.sku}}" role="tabpanel" aria-labelledby="nav-home-tab">
+      <p>User: Madam Lim</p>
+      <p>Order number: {{order.sku}}</p>
+      <p>Order Request: {{order.name}}</p>
+      <p>Cost: {{order.cost}}</p>
     </div>
-    <div class="tab-pane fade m-2" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <div class="tab-pane fade m-2" id="nav-contact{{order.sku}}" role="tabpanel" aria-labelledby="nav-contact-tab">
+      <p>Suggested market: NTUC</p>
+      <p>More info: {{order.description}}</p>
+    </div>
+    <div class="tab-pane fade m-2" id="nav-profile{{order.sku}}" role="tabpanel" aria-labelledby="nav-profile-tab">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -43,12 +48,9 @@
           </a>
         </div>
     </div>
-    <div class="tab-pane fade m-2" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-      <p>Suggested market: NTUC</p>
-    </div>
   </div>
 </div>
-
+{% endfor %}
 
 {% endblock %}
 
