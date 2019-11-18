@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect, reverse
 from django.contrib import messages
-from .models import orders, showOrders
+from .models import orders
 from .forms import addRequestForm
 
 
@@ -8,13 +8,13 @@ from .forms import addRequestForm
 
 def request_run(request):
     # all_orders = orders.objects.all();
-    personal_orders = showOrders.objects.filter(owner=request.user);
+    personal_orders = orders.objects.filter(requester=request.user);
     return render(request, "request-run.template.html",{
         'personal_orders':personal_orders
     })
     
 def request_info(request):
-    personal_orders = showOrders.objects.filter(owner=request.user);
+    personal_orders = orders.objects.filter(requester=request.user);
     return render(request, "request-info.template.html",{
         'personal_orders':personal_orders
     })
@@ -26,11 +26,11 @@ def add_request(request):
         
         if form.is_valid():
         
-            form.save()
+            new_request = form.save(commit=False)
+            new_request.requester = request.user
+            new_request.save()
             messages.success(request,"You request has been submitted")
-            return render(request, "add-request.template.html", {
-                'form':form
-            })
+            return redirect(reverse("request-run"))
         
         else:
             messages.error(request,"Sorry.Something went wrong.")

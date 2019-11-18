@@ -1,4 +1,5 @@
 from django.db import models
+from accounts.models import MyUser
 
 # Create your models here.
 class orders(models.Model):
@@ -6,17 +7,14 @@ class orders(models.Model):
     request = models.TextField(blank=False)
     cost = models.IntegerField(blank=False)
     image = models.ImageField(blank=True, null=True)
-    post_date = models.DateField(blank=False, null=False)
+    post_date = models.DateField(auto_now_add=True,blank=False)
     due_date = models.DateField(blank=False, null=False)
+    requester = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
     
     def __str__(self):
         return self.sku
-        
-class showOrders(models.Model):
-    orders = models.ForeignKey("main.orders", on_delete=models.CASCADE)
-    owner = models.ForeignKey("accounts.MyUser", on_delete=models.CASCADE)
-    
-    def __str__(self):
-        return self.orders.sku + " : " + str(self.owner)
+
+     
+
         
     

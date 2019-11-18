@@ -8,20 +8,20 @@
 {% for each_order in personal_orders %}
 <div class="card my-3 h-100">
   <div class="card-body" style="height:350px;">
-    <h5 class="card-title">Ref. Number: {{each_order.orders.sku}}
+    <h5 class="card-title">Ref. Number: {{each_order.sku}}
     <span><a href="#">Edit</a> <a href="#">Delete</a></span>
     </h5>
     <div class="row">
       <div class="col-6" style="height:200px;">
-        <p class="card-text text-truncate" style="height:150px;" >Details: <br>{{each_order.orders.request}} </p>
+        <p class="card-text text-truncate" style="height:150px;" >Details: <br>{{each_order.request}} </p>
         
     
         <a href="{% url 'request-info' %}">Read more...</a>
       </div>
       
       <div class="col-6">
-        <p class="card-text">Request Date: <br>{{each_order.orders.post_date}} </p>
-        <p class="card-text">Due Date: <br>{{each_order.orders.due_date}} </p>
+        <p class="card-text">Request Date: <br>{{each_order.post_date}} </p>
+        <p class="card-text">Due Date: <br>{{each_order.due_date}} </p>
         <p class="card-text">Urgency: <br>[Test]Urgent </p>
         <p class="card-text">Status: <br>[Test]Request Picked Up </p>
       </div>

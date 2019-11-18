@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'main',
-    'accounts'
+    'accounts',
+    'payment'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -144,3 +145,6 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+STRIPE_PUBLISHABLE_KEY = os.environ["STRIPE_PUBLISHABLE_KEY"]    
+STRIPE_SECRET_KEY = os.environ["STRIPE_SECRET_KEY"]
