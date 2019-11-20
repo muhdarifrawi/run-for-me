@@ -12,18 +12,32 @@
   </head>
   <body>
       {% extends 'base.template.html' %}
+      {% load crispy_forms_tags %}
       
       {% block content %}
       <h1>Any amount would be appreciated!</h1>
       
       <form method="POST">
         {% csrf_token %}
+        
+        <!--{{ form|crispy }}-->
+       
+        <!--<input type="textarea" name="bid" value="{{bid}}"/>-->
+        <input type="text" name="sku" class="form-control-plaintext" readonly value="{{sku}}"/>
+        <textarea name="bid" class="form-control" rows="3" class="form-control-plaintext" readonly>{{bid}}</textarea>
+        <input type="text" name="cost" class="form-control-plaintext" readonly value="{{cost}}"/>
+        <input type="text" name="due_date_month" class="form-control-plaintext" readonly value="{{due_date_month}}"/>
+        <input type="text" name="due_date_day" class="form-control-plaintext" readonly value="{{due_date_day}}"/>
+        <input type="text" name="due_date_year" class="form-control-plaintext" readonly value="{{due_date_year}}"/>
+        
+        
+        
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="{{ publishable_key }}"
-                data-description="Donate"
-                data-amount="{{amount}}"
+                data-description="Confirm Payment"
+                data-amount="{{cost}}"
                 data-locale="auto"></script>
-        <input type='text' name='amount' value='{{amount}}'/>
+        
       </form>
       
       {% endblock %}
