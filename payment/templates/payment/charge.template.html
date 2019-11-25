@@ -1,51 +1,44 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Donations</title>
-  </head>
-  <body>
-      {% extends 'base.template.html' %}
-      {% load crispy_forms_tags %}
-      
-      {% block content %}
-      <h1>Any amount would be appreciated!</h1>
-      
-      <form method="POST">
-        {% csrf_token %}
-        
-        <!--{{ form|crispy }}-->
-       
-        <!--<input type="textarea" name="bid" value="{{bid}}"/>-->
-        <input type="text" name="sku" class="form-control-plaintext" readonly value="{{sku}}"/>
-        <textarea name="bid" class="form-control" rows="3" class="form-control-plaintext" readonly>{{bid}}</textarea>
-        <input type="text" name="cost" class="form-control-plaintext" readonly value="{{cost}}"/>
-        <input type="text" name="due_date_month" class="form-control-plaintext" readonly value="{{due_date_month}}"/>
-        <input type="text" name="due_date_day" class="form-control-plaintext" readonly value="{{due_date_day}}"/>
-        <input type="text" name="due_date_year" class="form-control-plaintext" readonly value="{{due_date_year}}"/>
-        
-        
-        
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="{{ publishable_key }}"
-                data-description="Confirm Payment"
-                data-amount="{{cost}}"
-                data-locale="auto"></script>
-        
-      </form>
-      
-      {% endblock %}
+{% extends 'base.template.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load mathfilters %}
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-</html>
+
+{% block content %}
+<h1>Please fill in the details</h1>
+<form role="form" method="POST" id="payment-form">
+  <legend>Payment Details</legend>
+
+  <div class="form-group col-md-6">
+      {{ order_form | crispy }}
+  </div>
+
+  <div class="form-group col-md-6">
+      {{ payment_form | crispy }}
+  </div>
+
+  {% csrf_token %}
+  
+  <input type='text' value='{{cost}}' name='cost'/>
+  
+  <div class="form-group col-md-12">
+      <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit">
+  </div>
+  
+</form>
+
+  
+{% endblock %}
+
+{% block footer_js %}
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script type="text/javascript">
+      //<![CDATA[
+          Stripe.publishableKey = '{{ publishable }}';
+      //]]>
+  </script>
+  <script type="text/javascript" src="{% static '/payment/stripe.js' %}"></script>
+{% endblock %}
+

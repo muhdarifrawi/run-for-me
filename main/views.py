@@ -1,7 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect, reverse
 from django.contrib import messages
 from payment.models import orders
-from payment.forms import addRequestForm
 from django.conf import settings
 import stripe 
 

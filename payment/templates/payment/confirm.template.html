@@ -3,14 +3,17 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h1>Please fill in your run</h1>
-<h6>Put in as much details as possible</h6>
+<h1>Please key in payment</h1>
+<h6>We advice that you cover the minimal cost + labour</h6>
 
-<form method="GET" action="{% url "charge" %}">
-  {% csrf_token %}
-  {{ form|crispy }}
-  <!--<input type='text' name='amount'/>-->
-  <input type="submit" value=" Submit"/>
+<form method="GET" action="{% url 'charge' %}">
+  <div class='form-group'>
+      <label class='label'>
+          Amount:
+      </label>
+      <input type='text' name='cost' class='form-control'/>
+  </div>
+  <input type='submit' value='Submit' class='btn btn-primary'/>
 </form>
 
 {% endblock %}

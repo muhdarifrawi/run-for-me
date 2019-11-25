@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'main',
     'accounts',
-    'payment'
+    'payment',
+    'mathfilters'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -123,6 +124,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
 
 STATIC_URL = '/static/'
 
