@@ -13,13 +13,14 @@ def add_request(request):
 def charge(request):
     if request.method == 'GET':
         
-        cost = request.GET['cost']
-        
+        get_cost = request.GET['cost']
+        cost = int(float(get_cost)*100)
         return render(request, 'payment/charge.template.html', {
             'publishable' : settings.STRIPE_PUBLISHABLE_KEY,
             'payment_form' : PaymentForm(),
             'order_form' : OrderForm(),
-            'cost': cost
+            'cost': cost,
+            'get_cost':get_cost
         })
 
 
@@ -36,7 +37,7 @@ def charge(request):
         if order_form.is_valid() and payment_form.is_valid():
             try:
                 customer = stripe.Charge.create(
-                    amount= int(request.POST['cost'])*100,
+                    amount= int(request.POST['cost']),
                     currency='usd',
                     description='Payment',
                     card=stripeToken
@@ -45,6 +46,7 @@ def charge(request):
                 if customer.paid:
                     
                     order = order_form.save(commit=False)
+                    order.cost=request.POST['cost']
                     order.requester=request.user
                     order.date=timezone.now()
                     order.save()

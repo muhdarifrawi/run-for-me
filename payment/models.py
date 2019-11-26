@@ -8,7 +8,7 @@ class orders(models.Model):
     full_address = models.CharField(max_length=150, blank=False)
     postcode = models.CharField(max_length=20, blank=False)
     run_request = models.TextField(blank=False)
-    # cost = models.DecimalField(max_digits=6, decimal_places=2, blank=False)
+    cost = models.IntegerField(blank=False, null=True)
     image = models.ImageField(blank=True, null=True)
     post_date = models.DateField(auto_now_add=True,blank=False)
     due_date = models.DateField(blank=False, null=False)
