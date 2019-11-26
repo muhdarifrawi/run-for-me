@@ -71,28 +71,3 @@ def charge(request):
             'cost' : cost,
             'publishable': settings.STRIPE_PUBLISHABLE_KEY
             })   
-# def charge(request):
-#     if request.method == 'GET':
-        
-        
-#         stripe_publishable_key = settings.STRIPE_PUBLISHABLE_KEY
-    
-#         cost = request.GET['cost'] 
-#         return render(request, 'payment/charge.template.html', {
-#                 'publishable_key':stripe_publishable_key,
-#                 'cost_in_dollars':cost,
-#                 'cost':int(cost)*100
-#             })
-    
-#     else:
-        
-#         messages.success(request,"Your request has been submitted.")
-    
-#         stripe.api_key = settings.STRIPE_SECRET_KEY
-#         stripe_token = request.POST["stripeToken"]
-#         charge = stripe.Charge.create(amount=request.POST["cost"],
-#             currency='usd',
-#             source=stripe_token
-#         )
-#         return redirect(reverse, ("request-run"))
- 

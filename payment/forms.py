@@ -8,7 +8,7 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = orders
-        fields = ('sku','full_name','full_address','postcode','run_request','image','due_date', 'urgency')
+        fields = ('sku','full_name','full_address','postcode','contact','run_request','image','due_date', 'urgency')
         
 
 class PaymentForm(forms.Form):
