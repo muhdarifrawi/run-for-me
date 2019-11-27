@@ -3,7 +3,10 @@
 {% load mathfilters %}
 
 {% block content%}
+<div class="container-fluid">
 <h1>Relief a Run!</h1>
+
+
 {% for order in all_orders %}
 <div class="card text-center">
   <div class="card-header">
@@ -57,7 +60,7 @@
     </div>
   </div>
 </div>
+</div>
 {% endfor %}
-
 {% endblock %}
 

@@ -26,5 +26,13 @@ def relief_run(request):
     return render(request, "relief-run.template.html",{
         'all_orders':all_orders
     })
-
     
+def delete_order(request, sku):
+    if request.method == 'GET':
+        current_order = sku
+        return render(request, "delete.template.html", {
+            'current_order':current_order
+        })
+        
+    else:
+        return HttpResponse("yeah okay")

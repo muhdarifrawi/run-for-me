@@ -11,14 +11,14 @@
   
     
 
-    <title>Hello, world!</title>
+    <title>Run For Me</title>
   </head>
   <body>
     
     
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+      <a class="navbar-brand" href="#">Run4Me</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -39,7 +39,7 @@
       {% if messages %}
       
       {% for message in messages %}
-      <div {% if message.tags %}class="alert {{message.tags}} alert-dismissible" role="alert" {% endif %}>
+      <div {% if message.tags %}class="alert {{message.tags}} alert-dismissible my-1" role="alert" {% endif %}>
            {{ message }} 
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -52,13 +52,13 @@
       <div class="row m-2">Logged in as {{request.user.username}}</div>
       {% endif %}
       
-      <hr>
-  
-      <h1>{% block page_heading %}{% endblock %}</h1>
-     <div>
-         {% block content %}{% endblock %}
-     </div>
-   </div>
+    </div> 
+    
+    <div class="container-fluid"> 
+    <h1>{% block page_title %}{% endblock %}</h1>
+    </div>
+    {% block content %}{% endblock %}
+     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -2,19 +2,30 @@
 {% load mathfilters %}
 
 {% block content%}
-<h1>Request a Run!</h1>
-<a class="btn btn-primary" href="{% url 'add-request' %}">Add Request</a>
+<div class="container-fluid">
+<div class="row">
+<h1 class="col-4">Request a Run!</h1>
+<a class="btn btn-primary btn-lg col-2" href="{% url 'add-request' %}">Add Request</a>
+</div>
+</div>
+<hr>
+
+<div class="container-fluid">
+<h2>Your Requests</h2>
+
+{% if personal_orders %}
+
 
 {% for each_order in personal_orders %}
 <div class="card my-3 h-100">
   <div class="card-body" style="height:350px;">
     <h5 class="card-title">Ref. Number: {{each_order.sku}}
-    <span><a href="#">Edit</a> <a href="#">Delete</a></span>
+    <span><a href="#">Edit</a> <a href="{% url 'delete-order' each_order.sku %}">Delete</a></span>
     </h5>
     <div class="row">
       <div class="col-6" style="height:200px;">
-        <p class="card-text text-truncate" style="height:150px;" >Details: <br>{{each_order.bid}} </p>
-        <span>${{each_order.cost|mul:1.00}}</span>
+        <p class="card-text text-truncate" style="height:150px;" >Details: <br>{{each_order.run_request}} </p>
+        <span>${{each_order.cost|mul:0.01}}</span>
     
         <a href="{% url 'request-info' %}">Read more...</a>
       </div>
@@ -31,6 +42,13 @@
 </div>
 {% endfor %}
 
+
+{% else %}
+  <h6>No submissions yet.</h6>
+
+{% endif %}
+
+</div>
 
 {% endblock %}
 

@@ -8,23 +8,53 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Run For Me</title>
   </head>
   <body>
     
     {% extends 'base.template.html' %}
     
 
-    {% block page_title %}Home Page{% endblock %}
     
-    {% block page_heading %}Home{% endblock %}
-   
     {% if request.user.username%}
     Logged in as: {{request.user.username}}
     {% endif %}
     
+    {% block content %}
     
-
+    <div class="jumbotron d-flex align-items-stretch">
+      <div class="container">
+        <h1 class="display-4">Welcome to Run for Me</h1>
+        <hr class="my-3">
+        <div class="row">
+          <p class="lead col-6">The better way to reach for help.</p>
+          <a class="btn btn-primary btn-lg col-2 mx-1" href="{% url 'register' %}" role="button">Sign Up</a>
+          <a class="btn btn-primary btn-lg col-2 mx-1" href="{% url 'login'%}" role="button">Log In</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="row mb-5">
+      <h1>About Us</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam imperdiet 
+        id nibh sed lobortis. Pellentesque habitant morbi tristique senectus et 
+        netus et malesuada fames ac turpis egestas. Pellentesque tristique 
+        pellentesque sollicitudin. Phasellus rutrum ligula nisl, et scelerisque 
+        felis faucibus et. Mauris rutrum in leo sit amet pretium. Phasellus 
+        sodales ipsum libero, nec tempus elit imperdiet et. Cras in ipsum a dui 
+        sodales euismod non at mi. Suspendisse cursus suscipit pulvinar. Donec 
+        nec sapien pharetra massa congue vestibulum id eu sapien. Aenean nisl 
+        sapien, finibus et pulvinar nec, facilisis sit amet erat. Cras et 
+        consectetur sapien. Mauris sed gravida enim. Mauris sollicitudin eu 
+        velit vitae viverra. Curabitur molestie quis tortor id mattis. Donec eu 
+        felis est.
+      </p>
+      </div>
+    </div>
+    
+    {% endblock %}
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
