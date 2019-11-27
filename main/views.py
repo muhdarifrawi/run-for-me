@@ -35,4 +35,8 @@ def delete_order(request, sku):
         })
         
     else:
-        return HttpResponse("yeah okay")
+        orders.objects.filter(sku=sku).delete()
+        personal_orders = orders.objects.filter(requester=request.user);
+        return render(request, "request-run.template.html",{
+            'personal_orders':personal_orders
+        })
