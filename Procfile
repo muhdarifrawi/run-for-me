@@ -1,1 +1,1 @@
-web gunicorn RunForMe:app
+web: gunicorn <PROJECT_FOLDER>.wsgi:application
