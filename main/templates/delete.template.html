@@ -2,15 +2,16 @@
 {% load crispy_forms_tags %}
 
 {% block content%}
+<div class="container-fluid">
 <h1>Delete request</h1>
-
+<h4>Are you sure you want to delete request {{current_order}}?</h4>
 <form method='POST'>
     {% csrf_token %}
-    <input type="text" value="{{current_order}}"/>
-    <input type='submit'/>
+    <input type="hidden" value="{{current_order}}"/>
+    <input type='submit' value='Confirm' class='btn btn-primary'/>
+    <a href="{% url 'request-run' %}" class='btn btn-primary'>Cancel</a>
 </form>
 
-
-
+</div>
 {% endblock %}
 

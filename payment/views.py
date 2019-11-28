@@ -31,7 +31,7 @@ def charge(request):
         # set the secret key for the Stripe API
         stripe.api_key = settings.STRIPE_SECRET_KEY
         
-        order_form = OrderForm(request.POST)
+        order_form = OrderForm(request.POST, request.FILES)
         payment_form = PaymentForm(request.POST)
         
         if order_form.is_valid() and payment_form.is_valid():

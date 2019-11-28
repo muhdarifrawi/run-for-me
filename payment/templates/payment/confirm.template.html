@@ -3,18 +3,23 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h1>Please key in payment</h1>
-<h6>We advice that you cover the minimal cost + labour</h6>
-
-<form method="GET" action="{% url 'charge' %}">
-  <div class='form-group'>
-      <label class='label'>
-          Amount:
-      </label>
-      <input type='text' name='cost' class='form-control'/>
-  </div>
-  <input type='submit' value='Submit' class='btn btn-primary'/>
-</form>
+<div class="container-fluid">
+  <h1>Please key in payment</h1>
+  <h6>We advice that you cover the minimal cost + labour</h6>
+  
+  <form method="GET" action="{% url 'charge' %}">
+    <div class='form-group'>
+        <label class='label'>
+            Amount:
+        </label>
+        <div class="row">
+          <input type='text' name='cost' class='form-control col-2 mx-3'/>
+        </div>
+    </div>
+    <input type='submit' value='Submit' class='btn btn-primary'/>
+    <a href="{% url 'request-run' %}" class='btn btn-primary mx-2'>Cancel</a>
+  </form>
+</div>
 
 {% endblock %}
 

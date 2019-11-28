@@ -2,13 +2,18 @@
 {% load crispy_forms_tags %}
 
 {% block content%}
+<div class="container-fluid">
 <h1>Edit request</h1>
 
 <form method='POST'>
     {% csrf_token %}
     {{form|crispy}}
-    <input type='submit'/>
+    <div class="row m-3">
+        <input type='submit'value='Submit' class='btn btn-primary mr-2'/>
+        <a href="{% url 'request-run' %}" class='btn btn-primary mx-2'>Cancel</a>
+    </div>
 </form>
+</div>
 
 
 
