@@ -14,12 +14,14 @@ def request_run(request):
         'personal_orders':personal_orders
     })
     
-def request_info(request):
-    personal_orders = orders.objects.filter(requester=request.user);
-    return render(request, "request-info.template.html",{
-        'personal_orders':personal_orders
+def request_info(request, sku):
+    current_order = sku
+    order = orders.objects.get(sku=sku)
+    form = OrderForm(instance=order)
+    return render(request, "request-info.template.html", {
+        'current_order':current_order,
+        'order':order
     })
-    
 
 def relief_run(request):
     all_orders = orders.objects.all();
@@ -47,7 +49,6 @@ def edit_order(request, sku):
         current_order = sku
         order = orders.objects.get(sku=sku)
         form = OrderForm(instance=order)
-        # form['full_name'].value()
         return render(request, "edit.template.html", {
             'current_order':current_order,
             'form':form

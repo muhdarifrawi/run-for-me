@@ -6,7 +6,7 @@ from django.conf import settings
 urlpatterns = [
     path('request-run/', request_run, name='request-run'),
     path('relief-run', relief_run, name='relief-run'),
-    path('request-info', request_info, name='request-info'),
+    path('<sku>/request-info', request_info, name='request-info'),
     path('payment/',include('payment.urls')),
     path('<sku>/delete-order/',delete_order, name='delete-order'),
     path('<sku>/edit-order/',edit_order, name='edit-order')

@@ -27,7 +27,7 @@
         <p class="card-text text-truncate" style="height:150px;" >Details: <br>{{each_order.run_request}} </p>
         <span>${{each_order.cost|mul:0.01}}</span>
     
-        <a href="{% url 'request-info' %}">Read more...</a>
+        <a href="{% url 'request-info' each_order.sku %}">Read more...</a>
       </div>
       
       <div class="col-6">
