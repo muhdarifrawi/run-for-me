@@ -14,13 +14,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='orders',
             name='full_address',
-            field=models.CharField(default=django.utils.timezone.now, max_length=150),
+            field=models.CharField(default='', max_length=150),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='orders',
             name='postcode',
-            field=models.CharField(default=django.utils.timezone.now, max_length=20),
+            field=models.CharField(default='', max_length=20),
             preserve_default=False,
         ),
         migrations.AlterField(
