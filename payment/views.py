@@ -61,13 +61,13 @@ def charge(request):
              return render(request, 'payment/charge.template.html', {
             'order_form' : order_form,
             'payment_form' : payment_form,
-            'cost' : cost,
+            # 'cost' : cost,
             'publishable': settings.STRIPE_PUBLISHABLE_KEY
         })
         
         return render(request, 'payment/charge.template.html', {
             'order_form' : order_form,
             'payment_form' : payment_form,
-            'cost' : cost,
+            # 'cost' : cost,
             'publishable': settings.STRIPE_PUBLISHABLE_KEY
             })   
