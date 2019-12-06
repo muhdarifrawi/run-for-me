@@ -31,7 +31,7 @@ date expiry: anything after 2019
 
 Here is a link to a short demo video on YouTube: [Project 4 YouTube Demo](https://youtu.be/UtQAOb-iHg8)
 
-![Quick Demo Gif]()
+![Quick Demo Gif](https://github.com/muhdarifrawi/run-for-me/blob/master/video/Project4%20demo%20gif.gif)
 
 ## UI/UX
 
