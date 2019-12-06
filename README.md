@@ -80,6 +80,7 @@ Here you can see how the testing was done manually: [Testing Form](https://githu
  
 ## Acknowledgements
  
+This project would not have been completed without research through StackOverflow forums and the Django Documentations. 
 
 ## Final Note
 
