@@ -28,8 +28,14 @@
         <hr class="my-3">
         <div class="row">
           <p class="lead col-6">The better way to reach for help.</p>
+          {% if not user.is_authenticated %}
           <a class="btn btn-primary btn-lg col-2 mx-1" href="{% url 'register' %}" role="button">Sign Up</a>
           <a class="btn btn-primary btn-lg col-2 mx-1" href="{% url 'login'%}" role="button">Log In</a>
+          {% endif %}
+          {% if user.is_authenticated %}
+          <a class="btn btn-primary btn-lg col-2 mx-1" href="{% url 'request-run' %}" role="button">Request</a>
+          <a class="btn btn-primary btn-lg col-2 mx-1" href="{% url 'relief-run'%}" role="button">Relief</a>
+          {% endif %}
         </div>
       </div>
     </div>
