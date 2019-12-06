@@ -6,7 +6,7 @@ Run for me (Run4Me) is a fictitious webpage application that allows users to reg
 This application is deployed using Heroku. You can find the webpage by clicking [here]( https://mar-run-for-me.herokuapp.com/). This application would not be able to run properly as a Github deployment. Feel free to download the code if needed.
 
 
-![Quick Demo Gif](https://github.com/muhdarifrawi/supermarket-price-sharing/blob/master/wireframes/videos/Project%203%20Quick%20Demo.gif)
+![Quick Demo Gif]()
 
 ## UI/UX
 
