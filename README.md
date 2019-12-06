@@ -5,7 +5,7 @@ Run for me (Run4Me) is a fictitious webpage application that allows users to reg
 
 This application is deployed using Heroku. You can find the webpage by clicking [here]( https://mar-run-for-me.herokuapp.com/). This application would not be able to run properly as a Github deployment. Feel free to download the code if needed.
 
-For demo usage, there are two accounts that are accessible. 
+For demo usage, there are three accounts that are accessible: 
 ```
 User submitted 1
 user: tester
@@ -21,6 +21,15 @@ User has not submitted any request
 user: tester3
 password: vegebao123
 ```
+
+Please use the following details for credit card demo: 
+```
+card no. : 4242424242424242
+CVV: 123
+date expiry: anything after 2019
+```
+
+Here is a link to a short demo video on YouTube: [Project 4 YouTube Demo](https://youtu.be/UtQAOb-iHg8)
 
 ![Quick Demo Gif]()
 
