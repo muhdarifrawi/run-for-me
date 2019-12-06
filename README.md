@@ -5,6 +5,22 @@ Run for me (Run4Me) is a fictitious webpage application that allows users to reg
 
 This application is deployed using Heroku. You can find the webpage by clicking [here]( https://mar-run-for-me.herokuapp.com/). This application would not be able to run properly as a Github deployment. Feel free to download the code if needed.
 
+For demo usage, there are two accounts that are accessible. 
+```
+User submitted 1
+user: tester
+password: siaolongbao888
+```
+```
+User submitted 1
+user: tester2
+password: charsiewbao888
+```
+```
+User has not submitted any request
+user: tester3
+password: vegebao123
+```
 
 ![Quick Demo Gif]()
 
@@ -24,7 +40,7 @@ Database: AWS S3
 
 ## Wireframes
 
-You can find some of my thought processes in this short [PowerPoint]().
+You can find some of my thought processes in this short [PowerPoint](https://github.com/muhdarifrawi/run-for-me/blob/master/frameworks/Project%204%20Brainstorm.pptx).
 
 ## Features
 
@@ -36,7 +52,7 @@ Registered users can check on their personal profile by clicking on the profile 
 
 Registered user can also access the request run and relief run pages of the webpage. Clicking on to the request run tab, they would be led to the request run page. There, they would see any requests that they would have sent in. Else, it would show “No requests yet”. 
 
-To send request, registered user would have to click on to the “Add Request”. It would lead users to the request form where all the required fields are to be filled. The only field that is optional is the image field. 
+To send request, registered user would have to click on to the “Add Request”. It would lead users to the request form where all the required fields are to be filled. The only field that is optional is the image field. ***Please do take note that the date format is to be filled as such yyyy-mm-dd***
 
 At the bottom-most of the form, registered user would have to fill up their credit card details. As this is handled by Stripe, no data is kept in the app database. 
 
@@ -48,6 +64,7 @@ The relief run page will show requests submitted by various users. A single requ
 
 ##### All testings are done manually. No auto-testing application were used.
 
+Here you can see how the testing was done manually: [Testing Form](https://github.com/muhdarifrawi/run-for-me/blob/master/frameworks/Project%204%20Test%20Cases.pdf)
 
 ## Issues and Future Improvements
 
@@ -55,6 +72,7 @@ The relief run page will show requests submitted by various users. A single requ
 2. There is no option to request a new password for now. The plan was to use mailgun. This can be implemented for future use. 
 3. The SKU should not be keyed in by the user. It should automatically run in the background. Future implementation would be to automate this process. Find the last SKU entered and output a display to be shown on the form before submission.
 4. Get the “Relief Request” to function. Clicking on should reflect on the requester’s request page and change the status to “Request picked’. Then another button should appear to confirm that the delivery was completed to push money into the runner’s wallet. 
+5. Indicate in the request form in the date field that date is to be filled as such yyyy-mm-dd. The other solution is to use Django datepicker. 
  
 ## Deployment
  
